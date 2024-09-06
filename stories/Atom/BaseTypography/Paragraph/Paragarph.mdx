@@ -1,5 +1,6 @@
-import { Meta, Story } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/blocks';
 import { P } from './Paragraph';
+import * as ParagarphStories from './Paragarph.stories';
 
 export const getCaptionForLocale = (locale) => {
   switch(locale) {
@@ -12,42 +13,40 @@ export const getCaptionForLocale = (locale) => {
   }
 };
 
-<Meta title="Components/Typography/P" component={P} />
+<Meta of={ParagarphStories} />
 
-<style>{`
-  div#story--atoms-BaseTypography-p--p {
-    box-shadow: 0 1px 8px rgb(0 0 0 / 15%);
-    box-sizing: inherit;
-    width: 100%;
-    padding: 10px;
-  }
-  .subheading {
-    font-weight: 700;
-    font-size: 18px;
-    color: #666;
-    letter-spacing: 1.5px;
-    line-height: 24px;
-    margin-bottom: 12px;
-    margin-top: 40px;
-  }
-`}</style>
+<style>
+  {`
+      div#story--atoms-BaseTypography-p--p {
+        box-shadow: 0 1px 8px rgb(0 0 0 / 15%);
+        box-sizing: inherit;
+        width: 100%;
+        padding: 10px;
+      }
+      .subheading {
+        font-weight: 700;
+        font-size: 18px;
+        color: #666;
+        letter-spacing: 1.5px;
+        line-height: 24px;
+        margin-bottom: 12px;
+        margin-top: 40px;
+      }
+    `}
+</style>
 
 # Paragraph Component
+
 The Paragraph component defines a paragraph.
+
 <ul>
   <li>We can use the <code>p tag</code> in any component to define a paragraph.</li>
 </ul>
 
 Typographic scale when using paragraph in text component:
 
-<Story name="P">
-  {(args, { globals: { locale } }) => {
-    const caption = getCaptionForLocale(locale);
-    return <P label={caption.detail} ></P>;
-  }}
-</Story>
-
 <div className="subheading">Usage</div>
+
 <ul>
   <li>Take HTML from the HTML tab in canvas</li>
   <u>To use SCSS include the following files in your implementation</u>
