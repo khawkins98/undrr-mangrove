@@ -83,6 +83,38 @@ export default WithSearchTerm;
 `}
 />
 
+### Without Query Params
+
+An example of the `Fetcher` component without query params.
+
+<Canvas />
+
+<Source
+  language="jsx"
+  code={`
+import Fetcher from './Fetcher';
+
+const WithoutQueryParams = () => {
+  const renderData = ({ isLoading, data }) => (
+    <div>
+      {isLoading  && <p>loading metrics.......</p>}
+      <pre>{JSON.stringify(data, null, 4)}</pre>
+    </div>
+  );
+
+  return (
+    <Fetcher
+      api="https://sfvc-migration.undrr.org/api/v2/content/commitments-metrics"
+      loadingLabel="loading metrics...."
+      render={renderData}
+    />
+  );
+};
+
+export default WithoutQueryParams;
+`}
+/>
+
 ### Accessibility
 
 Ensure that the `render` function used within `Fetcher` is accessible and handles data presentation properly for all users.

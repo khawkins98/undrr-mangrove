@@ -23,7 +23,28 @@ To use the `MapComponent`, import it into your React application and provide it 
 
 This example uses the transformed data from the API to render the map.
 
-<Canvas />
+<Canvas>
+  <Story name="MapComponent with Fetcher">
+    {() => (
+      <Fetcher
+        api="https://sfvc-migration.undrr.org/api/v2/content/commitments-metrics?items_per_page=1000"
+        render={({ isLoading, data }) => (
+          <>
+            {isLoading ? (
+              <span>Loading data...</span>
+            ) : (
+              <MapComponent
+                data={transformData(data)}
+                width={1000}
+                center={[20,30]}
+              />
+            )}
+          </>
+        )}
+      />
+    )}
+  </Story>
+</Canvas>
 
 <Source
   language="jsx"

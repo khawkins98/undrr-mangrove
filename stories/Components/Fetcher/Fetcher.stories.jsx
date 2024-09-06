@@ -67,3 +67,24 @@ export const WithSearchTerm = {
 
   name: "With Search Term",
 };
+
+export const withoutQueryParams = {
+  render: () => {
+    const renderData = ({ isLoading, data }) => (
+      <div>
+        {isLoading && <p>loading metrics.......</p>}
+        <pre>{JSON.stringify(data, null, 4)}</pre>
+      </div>
+    );
+
+    return (
+      <Fetcher
+        api="https://sfvc-migration.undrr.org/api/v2/content/commitments-metrics"
+        render={renderData}
+        loadingLabel="loading metrics...."
+      />
+    );
+  },
+
+  name: "Without Query Params",
+};
