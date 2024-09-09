@@ -2,6 +2,7 @@ import { Meta, Story, Canvas, Source } from '@storybook/blocks';
 import MapComponent, { transformData } from './MapComponent';
 import Fetcher from "../Fetcher/Fetcher";
 import * as MapStories from './Map.stories';
+import { Loader} from "../../Utilities/Loader/Loader";
 
 <Meta of={MapStories} />
 
@@ -31,7 +32,7 @@ This example uses the transformed data from the API to render the map.
         render={({ isLoading, data }) => (
           <>
             {isLoading ? (
-              <span>Loading data...</span>
+              <Loader />
             ) : (
               <MapComponent
                 data={transformData(data)}
@@ -59,7 +60,7 @@ const MapComponentWithFetcher = () => (
     render={({ isLoading, data }) => (
       <>
         {isLoading ? (
-          <span>Loading data...</span>
+          <Loader />
         ) : (
           <MapComponent
             data={transformData(data)}

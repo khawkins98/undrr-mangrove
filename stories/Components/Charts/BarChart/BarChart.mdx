@@ -2,6 +2,7 @@ import { Meta, Story, Canvas, Source } from '@storybook/blocks';
 import BarChart from './BarChart';
 import Fetcher from "../../Fetcher/Fetcher";
 import * as BarChartStories from './BarChart.stories';
+import { Loader } from "../../../Utilities/Loader/Loader";
 
 <Meta of={BarChartStories} />
 
@@ -52,7 +53,7 @@ const BarChartWithOrganisation = () => (
     render={({ isLoading, data }) => (
       <>
         {isLoading ? (
-          <span>Loading data...</span>
+          <Loader />
         ) : (
           <BarChart
             data={data}
@@ -98,7 +99,7 @@ const BarChartWithFetcher = () => (
     render={({ isLoading, data }) => (
       <>
         {isLoading ? (
-          <span>Loading data...</span>
+          <Loader />
         ) : (
           <BarChart
             data={data}
